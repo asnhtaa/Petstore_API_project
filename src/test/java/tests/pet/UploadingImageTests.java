@@ -10,7 +10,7 @@ import static steps.pet.PetSteps.uploadImage;
 
 public class UploadingImageTests extends AbstractTest {
 
-    @DisplayName("PLace an order for a pet")
+    @DisplayName("Uploads an image for a pet")
     @Link(name = "Specification", url = "https://petstore.swagger.io/#/")
     @Test
     public void checkUploadingPetImage() {
