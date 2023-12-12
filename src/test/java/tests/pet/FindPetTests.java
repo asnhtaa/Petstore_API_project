@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import tests.AbstractTest;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static steps.pet.PetSteps.findPetById;
+import static steps.pet.PetSteps.*;
 
 public class FindPetTests extends AbstractTest {
 
@@ -37,5 +37,101 @@ public class FindPetTests extends AbstractTest {
         assertThat(response.getStatusCode())
                 .as("Status-code is different from expected")
                 .isEqualTo(404);
+    }
+
+    @DisplayName("Find Pet By Status 'available'")
+    @Link(name = "Specification", url = "https://petstore.swagger.io/#/")
+    @Test
+    public void checkFindingPetStatusAvailable() {
+        String body = """
+                {
+                "id": 0,
+                  "category": {
+                    "id": 0,
+                    "name": "string"
+                  },
+                  "name": "doggie",
+                  "photoUrls": [
+                    "string"
+                  ],
+                  "tags": [
+                    {
+                      "id": 0,
+                      "name": "string"
+                    }
+                  ],
+                  "status": "available"
+                }
+                """;
+
+        var response = findPetByStatus(spec, body);
+
+        assertThat(response.getStatusCode())
+                    .as("Status-code is different from expected")
+                    .isEqualTo(200);
+    }
+
+    @DisplayName("Find Pet By Status 'pending'")
+    @Link(name = "Specification", url = "https://petstore.swagger.io/#/")
+    @Test
+    public void checkFindingPetStatusPending() {
+        String body = """
+                {
+                "id": 0,
+                  "category": {
+                    "id": 0,
+                    "name": "string"
+                  },
+                  "name": "doggie",
+                  "photoUrls": [
+                    "string"
+                  ],
+                  "tags": [
+                    {
+                      "id": 0,
+                      "name": "string"
+                    }
+                  ],
+                  "status": "pending"
+                }
+                """;
+
+        var response = findPetByStatus(spec, body);
+
+        assertThat(response.getStatusCode())
+                .as("Status-code is different from expected")
+                .isEqualTo(200);
+    }
+
+    @DisplayName("Find Pet By Status 'sold'")
+    @Link(name = "Specification", url = "https://petstore.swagger.io/#/")
+    @Test
+    public void checkFindingPetStatusSold() {
+        String body = """
+                {
+                "id": 0,
+                  "category": {
+                    "id": 0,
+                    "name": "string"
+                  },
+                  "name": "doggie",
+                  "photoUrls": [
+                    "string"
+                  ],
+                  "tags": [
+                    {
+                      "id": 0,
+                      "name": "string"
+                    }
+                  ],
+                  "status": "sold"
+                }
+                """;
+
+        var response = findPetByStatus(spec, body);
+
+        assertThat(response.getStatusCode())
+                .as("Status-code is different from expected")
+                .isEqualTo(200);
     }
 }
