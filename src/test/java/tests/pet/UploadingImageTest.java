@@ -8,7 +8,7 @@ import tests.AbstractTest;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static steps.pet.PetSteps.uploadImage;
 
-public class UploadingImageTests extends AbstractTest {
+public class UploadingImageTest extends AbstractTest {
 
     @DisplayName("Uploads an image for a pet")
     @Link(name = "Specification", url = "https://petstore.swagger.io/#/")

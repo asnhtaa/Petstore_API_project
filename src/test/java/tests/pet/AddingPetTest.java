@@ -8,7 +8,7 @@ import tests.AbstractTest;
 
 import static steps.pet.PetSteps.addPet;
 
-public class AddingPetTests extends AbstractTest {
+public class AddingPetTest extends AbstractTest {
 
     @DisplayName("Adding new pet to the store")
     @Link(name = "Specification", url = "https://petstore.swagger.io/#/")
