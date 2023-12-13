@@ -40,9 +40,10 @@ public class PetSteps {
     }
 
     @Step("Finds Pets by status " + FIND_PET_BY_STATUS)
-    public static Response findPetByStatus(RequestSpecification spec, String orderId) {
+    public static Response findPetByStatus(RequestSpecification spec, String body) {
 
         return given().spec(spec)
+                .body(body)
                 .when().get(FIND_PET_BY_STATUS)
                 .then().extract().response();
     }

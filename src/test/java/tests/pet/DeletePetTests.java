@@ -11,7 +11,6 @@ import static steps.pet.PetSteps.addPet;
 import static steps.pet.PetSteps.deletePet;
 
 public class DeletePetTests extends AbstractTest {
-
     @DisplayName("Deletes a pet - positive case")
     @Link(name = "Specification", url = "https://petstore.swagger.io/#/")
     @Test

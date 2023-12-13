@@ -35,7 +35,7 @@ public class StoreSteps {
     }
 
     @Step("Returns pet inventories by status " + PET_INVENTORIES)
-    public static Response updateUser(RequestSpecification spec, String body) {
+    public static Response getPetInventories(RequestSpecification spec) {
         return given().spec(spec)
                 .when().get(PET_INVENTORIES)
                 .then().extract().response();
