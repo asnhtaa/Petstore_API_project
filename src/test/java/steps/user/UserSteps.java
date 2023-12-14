@@ -18,9 +18,10 @@ public class UserSteps {
     }
 
     @Step("Get user by user name" + USER_ACTION)
-    public static Response getUser(RequestSpecification spec) {
+    public static Response getUser(RequestSpecification spec, String userName) {
+        String requestUrl = USER_ACTION.replace("{username}", userName);
         return given().spec(spec)
-                .when().get(USER_ACTION)
+                .when().get(requestUrl)
                 .then().extract().response();
     }
 
@@ -33,9 +34,10 @@ public class UserSteps {
     }
 
     @Step("Delete user by user name" + USER_ACTION)
-    public static Response deleteUser(RequestSpecification spec) {
+    public static Response deleteUser(RequestSpecification spec, String username) {
+        String requestUrl = USER_ACTION.replace("{username}", username);
         return given().spec(spec)
-                .when().delete(USER_ACTION)
+                .when().delete(requestUrl)
                 .then().extract().response();
     }
 
