@@ -26,10 +26,11 @@ public class UserSteps {
     }
 
     @Step("Update a user" + USER_ACTION)
-    public static Response updateUser(RequestSpecification spec, String body) {
+    public static Response updateUser(RequestSpecification spec, String body, String userName) {
+        String requestUrl = USER_ACTION.replace("{username}", userName);
         return given().spec(spec)
                 .body(body)
-                .when().put(USER_ACTION)
+                .when().put(requestUrl)
                 .then().extract().response();
     }
 
@@ -42,9 +43,10 @@ public class UserSteps {
     }
 
     @Step("Logs user into the system" + LOG_IN)
-    public static Response logIn(RequestSpecification spec) {
+    public static Response logIn(RequestSpecification spec, String username, String password) {
+        String requestUrl = LOG_IN + "?username=" + username + "&password="+ password;
         return given().spec(spec)
-                .when().get(LOG_IN)
+                .when().get(requestUrl)
                 .then().extract().response();
     }
 

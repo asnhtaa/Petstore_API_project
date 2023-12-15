@@ -24,7 +24,7 @@ public class GetUserTest extends AbstractTest {
         });
     }
 
-    @DisplayName("Get user by user name")
+    @DisplayName("Get user by user name - negative case (user does not exist)")
     @Link(name = "Specification", url = "https://petstore.swagger.io/#/")
     @Test
     public void getNonexistentUserByName() {
