@@ -10,7 +10,7 @@ import static endpoints.PetUrl.*;
 import static io.restassured.RestAssured.given;
 
 public class PetSteps {
-    @Step("Upload an image" + UPLOAD_IMAGE)
+    @Step("Uploading an image of a pet" + UPLOAD_IMAGE)
     public static Response uploadImage(RequestSpecification spec, String petId) {
         String requestUrl = UPLOAD_IMAGE.replace("{petId}", petId);
 
