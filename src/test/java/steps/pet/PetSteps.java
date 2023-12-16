@@ -21,7 +21,7 @@ public class PetSteps {
                 .then().extract().response();
     }
 
-    @Step("Add a new pet to the store " + PET_ACTION)
+    @Step("Adding a new pet to the store " + PET_ACTION)
     public static Response addPet(RequestSpecification spec, String body) {
 
         return given().spec(spec)
@@ -30,7 +30,7 @@ public class PetSteps {
                 .then().extract().response();
     }
 
-    @Step("Update an existing pet " + PET_ACTION)
+    @Step("Updating an existing pet " + PET_ACTION)
     public static Response updatePet(RequestSpecification spec, String body) {
 
         return given().spec(spec)
