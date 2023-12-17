@@ -11,23 +11,23 @@ import static steps.pet.PetSteps.addPet;
 import static steps.pet.PetSteps.deletePet;
 
 public class DeletePetTests extends AbstractTest {
-    @DisplayName("Deletes a pet - positive case")
+    @DisplayName("Checks the functionality of deleting a pet")
     @Link(name = "Specification", url = "https://petstore.swagger.io/#/")
     @Test
-    public void checkDeletingPet() {
+    public void deletingPetTest() {
         String body = """
                 {
-                  "id": 0,
+                  "id": 24,
                     "category": {
-                      "id": 0,
-                      "name": "string"
+                      "id": 24,
+                      "name": "cats"
                     },
-                    "name": "doggie",
-                    "photoUrls": ["string"],
+                    "name": "Nick",
+                    "photoUrls": ["https://www.freecatphotoapp.com/"],
                     "tags": [
                       {
-                        "id": 0,
-                        "name": "string"
+                        "id": 24,
+                        "name": "cat"
                       }
                     ],
                     "status": "available"
@@ -53,23 +53,23 @@ public class DeletePetTests extends AbstractTest {
                 .isEqualTo(200);
     }
 
-    @DisplayName("Delete a pet twice- negative case")
+    @DisplayName("Checks the functionality of deleting a pet twice- negative case")
     @Link(name = "Specification", url = "https://petstore.swagger.io/#/")
     @Test
-    public void checkDeletingPetTwice() {
+    public void deletingPetTwiceTest() {
         String body = """
                 {
-                  "id": 0,
+                  "id": 31,
                     "category": {
-                      "id": 0,
-                      "name": "string"
+                      "id": 31,
+                      "name": "dog"
                     },
-                    "name": "doggie",
-                    "photoUrls": ["string"],
+                    "name": "Bobby",
+                    "photoUrls": ["https://wildcard.codestuff.io/dog/250/250"],
                     "tags": [
                       {
-                        "id": 0,
-                        "name": "string"
+                        "id": 31,
+                        "name": "cute"
                       }
                     ],
                     "status": "available"
