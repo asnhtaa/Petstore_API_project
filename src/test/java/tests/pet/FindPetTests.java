@@ -11,12 +11,12 @@ import static steps.pet.PetSteps.*;
 
 public class FindPetTests extends AbstractTest {
 
-    @DisplayName("Find pet by id")
+    @DisplayName("Check the functionality of finding pet by id")
     @Link(name = "Specification", url = "https://petstore.swagger.io/#/")
     @Test
-    public void checkFindingPetId() {
+    public void gettingPetByIdTest() {
 
-        var response = findPetById(spec, "1");
+        var response = findPetById(spec, "12345");
 
         SoftAssertions.assertSoftly(softly -> {
             softly.assertThat(response.getStatusCode())
@@ -27,10 +27,10 @@ public class FindPetTests extends AbstractTest {
         });
     }
 
-    @DisplayName("Find pet by id - negative case")
+    @DisplayName("Check the functionality of finding pet by id - negative case (id not found)")
     @Link(name = "Specification", url = "https://petstore.swagger.io/#/")
     @Test
-    public void checkFindingPetInvalidId() {
+    public void gettingPetIdNotFoundTest() {
 
         var response = findPetById(spec, "123568993");
 
@@ -39,25 +39,25 @@ public class FindPetTests extends AbstractTest {
                 .isEqualTo(404);
     }
 
-    @DisplayName("Find Pet By Status 'available'")
+    @DisplayName("Check the functionality of finding pet by status 'available'")
     @Link(name = "Specification", url = "https://petstore.swagger.io/#/")
     @Test
-    public void checkFindingPetStatusAvailable() {
+    public void findingPetStatusAvailableTest() {
         String body = """
                 {
-                "id": 0,
+                "id": 45,
                   "category": {
-                    "id": 0,
-                    "name": "string"
+                    "id": 45,
+                    "name": "cats"
                   },
-                  "name": "doggie",
+                  "name": "Katie",
                   "photoUrls": [
-                    "string"
+                    "https://www.freecatphotoapp.com/"
                   ],
                   "tags": [
                     {
-                      "id": 0,
-                      "name": "string"
+                      "id": 45,
+                      "name": "cats"
                     }
                   ],
                   "status": "available"
@@ -67,29 +67,29 @@ public class FindPetTests extends AbstractTest {
         var response = findPetByStatus(spec, body);
 
         assertThat(response.getStatusCode())
-                    .as("Status-code is different from expected")
-                    .isEqualTo(200);
+                .as("Status-code is different from expected")
+                .isEqualTo(200);
     }
 
-    @DisplayName("Find Pet By Status 'pending'")
+    @DisplayName("Check the functionality of finding pet by status 'pending'")
     @Link(name = "Specification", url = "https://petstore.swagger.io/#/")
     @Test
-    public void checkFindingPetStatusPending() {
+    public void findingPetStatusPendingTest() {
         String body = """
                 {
-                "id": 0,
+                "id": 22,
                   "category": {
-                    "id": 0,
-                    "name": "string"
+                    "id": 22,
+                    "name": "cats"
                   },
-                  "name": "doggie",
+                  "name": "Milo",
                   "photoUrls": [
-                    "string"
+                    "https://www.freecatphotoapp.com/"
                   ],
                   "tags": [
                     {
-                      "id": 0,
-                      "name": "string"
+                      "id": 22,
+                      "name": "cute"
                     }
                   ],
                   "status": "pending"
@@ -103,25 +103,25 @@ public class FindPetTests extends AbstractTest {
                 .isEqualTo(200);
     }
 
-    @DisplayName("Find Pet By Status 'sold'")
+    @DisplayName("Check the functionality of finding pet by status 'sold'")
     @Link(name = "Specification", url = "https://petstore.swagger.io/#/")
     @Test
-    public void checkFindingPetStatusSold() {
+    public void findingPetStatusSoldTest() {
         String body = """
                 {
-                "id": 0,
+                "id": 89,
                   "category": {
-                    "id": 0,
-                    "name": "string"
+                    "id": 89,
+                    "name": "cats"
                   },
-                  "name": "doggie",
+                  "name": "Simba",
                   "photoUrls": [
-                    "string"
+                    "https://www.freecatphotoapp.com/"
                   ],
                   "tags": [
                     {
-                      "id": 0,
-                      "name": "string"
+                      "id": 89,
+                      "name": "cutie"
                     }
                   ],
                   "status": "sold"
