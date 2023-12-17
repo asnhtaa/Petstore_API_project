@@ -11,15 +11,15 @@ import static steps.store.StoreSteps.deletePurchase;
 import static steps.store.StoreSteps.placePetOrder;
 
 public class DeleteOrderTests extends AbstractTest {
-    @DisplayName("Deletes a pet - positive case")
+    @DisplayName("Checks the functionality of deleting an order")
     @Link(name = "Specification", url = "https://petstore.swagger.io/#/")
     @Test
-    public void checkDeletingOrder() {
+    public void deletingOrderTest() {
         String body = """
                 {
-                  "id": 0,
-                  "petId": 0,
-                  "quantity": 0,
+                  "id": 23,
+                  "petId": 34,
+                  "quantity": 1,
                   "shipDate": "2023-12-13T17:28:47.116Z",
                   "status": "placed",
                   "complete": true
@@ -45,15 +45,15 @@ public class DeleteOrderTests extends AbstractTest {
                 .isEqualTo(200);
     }
 
-    @DisplayName("Delete a pet twice- negative case")
+    @DisplayName("Checks the functionality of deleting an order twice- negative case")
     @Link(name = "Specification", url = "https://petstore.swagger.io/#/")
     @Test
-    public void checkDeletingPetTwice() {
+    public void deletingOrderTwiceTest() {
         String body = """
                 {
-                  "id": 0,
-                  "petId": 0,
-                  "quantity": 0,
+                  "id": 56,
+                  "petId": 689,
+                  "quantity": 3,
                   "shipDate": "2023-12-13T17:28:47.116Z",
                   "status": "placed",
                   "complete": true
