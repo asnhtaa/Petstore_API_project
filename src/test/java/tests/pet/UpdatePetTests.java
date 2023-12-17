@@ -11,15 +11,30 @@ import static steps.pet.PetSteps.*;
 
 public class UpdatePetTests extends AbstractTest {
 
-    @DisplayName("Updates a pet in the store with form data")
+    @DisplayName("Check the functionality of updating a pet in the store with form data")
     @Link(name = "Specification", url = "https://petstore.swagger.io/#/")
     @Test
-    public void checkUpdatingPetFormData() {
+    public void updatingPetFormDataTest() {
         var response = updatePetFormData(spec, "2", "cat", "available");
 
         assertThat(response.getStatusCode())
                 .as("Status-code is different from expected")
                 .isEqualTo(200);
+    }
+
+    @DisplayName("Check the functionality of updating a pet in the store with form data - negative case (id not found)")
+    @Link(name = "Specification", url = "https://petstore.swagger.io/#/")
+    @Test
+    public void updatingPetFormDataIdNotFoundTest() {
+        var response = updatePetFormData(spec, "1234567897654321", "cat", "available");
+
+        SoftAssertions.assertSoftly(softly -> {
+            softly.assertThat(response.getStatusCode())
+                    .as("Status-code is different from expected")
+                    .isEqualTo(404);
+            softly.assertThat(response.jsonPath().getString("message"))
+                    .as("Field 'message' is different from expected").isEqualTo("not found");
+        });
     }
 
     @DisplayName("Check the functionality of updating pet in the store")
