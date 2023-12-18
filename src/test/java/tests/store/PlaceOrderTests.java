@@ -10,15 +10,15 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static steps.store.StoreSteps.placePetOrder;
 
 public class PlaceOrderTests extends AbstractTest {
-    @DisplayName("Place an order for a pet")
+    @DisplayName("Check the functionality of placing an order for a pet")
     @Link(name = "Specification", url = "https://petstore.swagger.io/#/")
     @Test
-    public void checkPlacingOrder() {
+    public void placingOrderTest() {
         String body = """
                 {
-                  "id": 0,
-                  "petId": 0,
-                  "quantity": 0,
+                  "id": 25,
+                  "petId": 23,
+                  "quantity": 1,
                   "shipDate": "2023-12-13T17:28:47.116Z",
                   "status": "placed",
                   "complete": true
@@ -36,15 +36,15 @@ public class PlaceOrderTests extends AbstractTest {
         });
     }
 
-    @DisplayName("Place an order for a pet - negative (invalid Id)")
+    @DisplayName("Check the functionality of placing an order for a pet - negative case (invalid Id)")
     @Link(name = "Specification", url = "https://petstore.swagger.io/#/")
     @Test
-    public void checkPlacingInvalidOrder() {
+    public void placingOrderInvalidIdTest() {
         String body = """
                 {
                   "id": !(@*#!,
-                  "petId": 0,
-                  "quantity": 0,
+                  "petId": 34,
+                  "quantity": 4,
                   "shipDate": "2023-12-13T17:28:47.116Z",
                   "status": "placed",
                   "complete": true
