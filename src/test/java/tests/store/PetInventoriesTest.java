@@ -8,11 +8,11 @@ import tests.AbstractTest;
 
 import static steps.store.StoreSteps.getPetInventories;
 
-public class PetInventoriesTests extends AbstractTest {
-    @DisplayName("Returns pet inventories by status")
+public class PetInventoriesTest extends AbstractTest {
+    @DisplayName("Check the functionality of getting pet inventories by status")
     @Link(name = "Specification", url = "https://petstore.swagger.io/#/")
     @Test
-    public void getPetInventory() {
+    public void gettingPetInventoryTest() {
         var response = getPetInventories(spec);
 
         SoftAssertions.assertSoftly(softly -> {
