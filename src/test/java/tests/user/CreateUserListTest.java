@@ -10,20 +10,30 @@ import static steps.user.UserSteps.createUserList;
 
 public class CreateUserListTest extends AbstractTest {
 
-    @DisplayName("Creates list of users with given input array")
+    @DisplayName("Check the functionality of creating list of users with given input array")
     @Link(name = "Specification", url = "https://petstore.swagger.io/#/")
     @Test
-    public void createUserListWithArray() {
+    public void creatingUserListWithArrayTest() {
         String body = """
                 [
                   {
-                    "id": 0,
-                    "username": "string",
-                    "firstName": "string",
-                    "lastName": "string",
-                    "email": "string",
-                    "password": "string",
-                    "phone": "string",
+                    "id": 1,
+                    "username": "natalia_123",
+                    "firstName": "natalia",
+                    "lastName": "kim",
+                    "email": "natalia123@gmail.com",
+                    "password": "nataliakim123",
+                    "phone": "010-123-123",
+                    "userStatus": 0
+                  },
+                  {
+                    "id": 2,
+                    "username": "alexey_123",
+                    "firstName": "alexey",
+                    "lastName": "nosov",
+                    "email": "alexey123@gmail.com",
+                    "password": "alexey123",
+                    "phone": "010-123-1234",
                     "userStatus": 0
                   }
                 ]
