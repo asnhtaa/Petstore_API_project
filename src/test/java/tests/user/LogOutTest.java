@@ -9,10 +9,10 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static steps.user.UserSteps.logOut;
 
 public class LogOutTest extends AbstractTest {
-    @DisplayName("Logs out current logged in user session")
+    @DisplayName("Check the functionality of logging out user")
     @Link(name = "Specification", url = "https://petstore.swagger.io/#/")
     @Test
-    public void checkLogoutUser() {
+    public void logoutUserTest() {
         var response = logOut(spec);
 
         assertThat(response.getStatusCode())
