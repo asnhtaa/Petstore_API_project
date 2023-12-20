@@ -22,8 +22,8 @@ public class FindPetTests extends AbstractTest {
             softly.assertThat(response.getStatusCode())
                     .as("Status-code is different from expected")
                     .isEqualTo(200);
-            softly.assertThat(response.jsonPath().getString("name"))
-                    .as("Field 'name' is not found").isNotNull();
+            softly.assertThat(response.jsonPath().getString("id"))
+                    .as("Field 'id' is not found").isNotNull();
         });
     }
 
