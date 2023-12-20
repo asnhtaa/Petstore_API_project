@@ -11,7 +11,7 @@ import static steps.store.StoreSteps.deletePurchase;
 import static steps.store.StoreSteps.placePetOrder;
 
 public class DeleteOrderTests extends AbstractTest {
-    @DisplayName("Checks the functionality of deleting an order")
+    @DisplayName("Check the functionality of deleting an order")
     @Link(name = "Specification", url = "https://petstore.swagger.io/#/")
     @Test
     public void deletingOrderTest() {
@@ -45,7 +45,7 @@ public class DeleteOrderTests extends AbstractTest {
                 .isEqualTo(200);
     }
 
-    @DisplayName("Checks the functionality of deleting an order twice- negative case")
+    @DisplayName("Check the functionality of deleting an order twice- negative case")
     @Link(name = "Specification", url = "https://petstore.swagger.io/#/")
     @Test
     public void deletingOrderTwiceTest() {

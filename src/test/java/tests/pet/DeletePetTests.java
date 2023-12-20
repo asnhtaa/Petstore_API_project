@@ -11,7 +11,7 @@ import static steps.pet.PetSteps.addPet;
 import static steps.pet.PetSteps.deletePet;
 
 public class DeletePetTests extends AbstractTest {
-    @DisplayName("Checks the functionality of deleting a pet")
+    @DisplayName("Check the functionality of deleting a pet")
     @Link(name = "Specification", url = "https://petstore.swagger.io/#/")
     @Test
     public void deletingPetTest() {
@@ -53,7 +53,7 @@ public class DeletePetTests extends AbstractTest {
                 .isEqualTo(200);
     }
 
-    @DisplayName("Checks the functionality of deleting a pet twice- negative case")
+    @DisplayName("Check the functionality of deleting a pet twice- negative case")
     @Link(name = "Specification", url = "https://petstore.swagger.io/#/")
     @Test
     public void deletingPetTwiceTest() {
