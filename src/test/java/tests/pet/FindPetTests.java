@@ -15,8 +15,38 @@ public class FindPetTests extends AbstractTest {
     @Link(name = "Specification", url = "https://petstore.swagger.io/#/")
     @Test
     public void gettingPetByIdTest() {
+        String body = """
+                {
+                  "id": 2,
+                  "category": {
+                    "id": 2,
+                    "name": "kittens"
+                  },
+                  "name": "Fluffy",
+                  "photoUrls": ["https://www.freecatphotoapp.com/"],
+                  "tags": [
+                    {
+                      "id": 2,
+                      "name": "cute"
+                    }
+                  ],
+                  "status": "available"
+                }
+                """;
 
-        var response = findPetById(spec, "12345");
+        var addingPet = addPet(spec, body);
+
+        SoftAssertions.assertSoftly(softly -> {
+            softly.assertThat(addingPet.getStatusCode())
+                    .as("Status-code is different from expected")
+                    .isEqualTo(200);
+            softly.assertThat(addingPet.jsonPath().getString("id"))
+                    .as("Field 'id' is null").isNotNull();
+        });
+
+        String petId = addingPet.jsonPath().getString("id");
+
+        var response = findPetById(spec, petId);
 
         SoftAssertions.assertSoftly(softly -> {
             softly.assertThat(response.getStatusCode())
